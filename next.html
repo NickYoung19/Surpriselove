@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>MadeByClever</title>
+		<!-- css样式 -->
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{background:url("images/3.jpg");background-size:cover;}
+			.top{width: 500px;height: 100px;margin: 60px auto;font-size: 35px;font-family: "微软雅黑";color:#ff99ff; font-weight: bold；}
+			.box{width: 310px;height: 310px;margin:auto;perspective:800px;}
+			.box  .pic{position: relative; transform-style:preserve-3d;animation:play 15s linear infinite;}
+			.box  ul li{list-style: none;position: absolute;top: 0;left: 0;}
+			.text{width: 800px;height: 200px;margin:auto;color:#cc66ff;font-size: 30px; font-family: "楷体"; text-align:center; font-weight: bold；}
+			#btn{width: 100px;height: 40px;background: pink;border: 0;font-size: 20px;color: blue;border-radius: 25px;position: absolute;right: 85px;bottom:45px;text-decoration: none;text-align: center;line-height: 40px;display: none;opacity: 0.4;}
+		/*定义一个关键帧 */
+			  @keyframes play{
+				from{transform:rotateY(0deg);}
+				to{transform:rotateY(360deg);}
+			  }
+		</style>
+		
+	</head>
+	
+	<body>
+		<!-- div盒子 -->
+		<!-- 放上方文字 -->
+		<div class="top">
+		<marquee behavior="alternate">时光不老,我们不散</marquee>
+		</div>
+		<!-- 放图片-->
+		<div class="box">
+			<div class="pic">
+				<ul>
+				<!-- 放图片.图片标签四要素 src width height alt 优化-->
+					<li><img alt="描叙" src="images/1.png" height="" width=""></li>
+					<li><img alt="描叙" src="images/2.png" height="" width=""></li>
+					<li><img alt="描叙" src="images/3.png" height="" width=""></li>
+					<li><img alt="描叙" src="images/4.png" height="" width=""></li>
+					<li><img alt="描叙" src="images/5.png" height="" width=""></li>
+					<li><img alt="描叙" src="images/6.png" height="" width=""></li>
+				</ul>
+			</div>
+		</div>	
+			
+		<div class="text">
+		<!-- div内容-->
+			<p>假如人生不曾相遇，我还是那个我，偶尔做做梦</p>
+			<p>然后，开始日复一日的奔波，淹没在这喧嚣的城市里。</p>
+			<p>我不会了解，这个世界还有这样的一个你</p>
+			<p>只有你能让我回味，也只有你会让我心醉。</p>  
+		</div>
+		<!-- 加载背景音乐-->
+		<embed src="music/Faded.mp3" hidden="true" ></embed>
+
+		<!-- 引用jquery库-和雪花库-->
+		<script src="js/jquery-1.11.3.min.js"></script>
+				<!--script src="js/jq.snow.js"></script>-->
+				<script  src="js/snow.src.js"></script>
+			<script >
+				$(function() {
+					$('#btn').fadeIn(5*1000)
+				});
+			//alert($);
+			//拿到每一个li
+				$(".pic ul li").each(function(i){
+					var deg = 360/$(".pic ul li").size();
+					//当前li对象
+					$(this).css({transform:"rotateY("+deg*i+"deg ) translateZ(216px)"});
+				});
+				/*动态拼字显示效果暂时搁置	
+				var str="你是谁梦中日夜牵挂的少年,在无聊的日子里辗转成歌"
+				//js获取div
+				$(document).ready(function typing(){
+						$("#text").append(). str.charAt(i);
+							 i++;
+
+				});
+			/*window.onload=function typing(){
+				var mydiv=document.getElementById("text");
+				 mydiv.innerHTML += str.charAt(i);
+				 i++;
+
+				var id= setTimeout(typing,100);
+				if(i==str.length){
+					clearTimeout(id);
+				}
+				}
+
+				//添加雪花效果
+				$(function(){
+		$.fn.snow({ 
+			minSize: 10,		//雪花的最小尺寸
+			maxSize: 30, 	//雪花的最大尺寸
+			newOn: 250		//雪花出现的频率 这个数值越小雪花越多
+			});
+		});
+		*/
+		</script>
+
+	<a href="index.html" id="btn">Home</a>
+	</body>
+</html>
