@@ -51,13 +51,23 @@
 			<p>只有你能让我回味，也只有你会让我心醉。</p>  
 		</div>
 		<!-- 加载背景音乐-->
-		<embed src="music/Faded.aac" hidden="true" ></embed>
+		<embed src="music/Faded.aac" hidden="true" id="audios"></embed>
 
 		<!-- 引用jquery库-和雪花库-->
 		<script src="js/jquery-1.11.3.min.js"></script>
 				<!--script src="js/jq.snow.js"></script>-->
 				<script  src="js/snow.src.js"></script>
 			<script >
+				
+			        // 创建页面监听，等待微信端页面加载完毕 触发音频播放
+			        document.addEventListener('WeixinJSBridgeReady', function() {
+				     document.getElementById('audios').play()
+			        })
+			        // 创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+			        document.addEventListener('touchstart', function() {
+				     document.getElementById('audios').play()
+			        })
+
 				$(function() {
 					$('#btn').fadeIn(5*1000)
 				});
